@@ -1,7 +1,6 @@
 console.log("in js file");
 var people = [];
 
-
 var Justin = {
   name: 'Justin Timberlake',
   title: 'Singer/actor',
@@ -24,8 +23,32 @@ var Morgan = {
   }	
 }
 
+var Randy = {
+  name: 'Randy Orton',
+  title: 'Sports Entertainment Wrestler',
+  bio: 'A third generation wrestler, Randy was born in Knoxville, TN. His father, grandfather, and uncle were all professional wrestlers. At the age of 24, Orton became the youngest person to hold the WWE Heavyweight Championship title. He changed his focus to acting, following the footsteps of other professional wrestlers turned actors, including DeWayne "The Rock" Johnson. Orton starred in the 2013 film "12 Rounds: Reloaded." He has one daughter.',
+  image: './images/Randy.png',
+  lifespan: {
+    birth: 1980,
+    death: "still kickin' it"
+  }
+}
+
+var Robby = {
+  name: 'Robby Novak',
+  title: 'YouTube sensation, Kid President',
+  bio: 'The son of a staff member of Freed-Hardeman University, Robby,s "Kid President" persona was created as a marketing video for Freed-Hardeman. He has been featured on ESPN, and more noteably, dined in the White House.',
+  image: './images/KidPres.jpg',
+  lifespan: {
+    birth: 2003,
+    death: "still kickin' it"
+  }
+}
+
 people.push(Justin);
 people.push(Morgan);
+people.push(Randy);
+people.push(Robby);
 //console.log(people);
 
 var peopleContainer=document.getElementById('comeHere');
@@ -35,8 +58,8 @@ function buildBio(person){
 
 	bio+= `<div class="peopleBio">`;
 	bio+=	`<header class="nameTitle">`;
-	bio+= 		`<div class="title"> ${person.title}</div>`;
-	bio+= 		`<h1 class="name">${person.name}</h1>`;
+	bio+=		`<h1 class="name">${person.name}</h1>`;
+	bio+= 		`<div class="title"> ${person.title}</div>`;	
 	bio+=	`</header>`;
 	bio+=	`<section class="bioImage">`;
 	bio+=		`<div class="bio">${person.bio}</div>`;
