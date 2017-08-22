@@ -1,6 +1,8 @@
 console.log("in js file");
+//1. Create an array of objects that represents famous people
+var counter = 0;
 var people = [];
-
+//7. Each element's DOM structure should be as shown below.
 var Justin = {
   name: 'Justin Timberlake',
   title: 'Singer/actor',
@@ -51,7 +53,11 @@ people.push(Randy);
 people.push(Robby);
 //console.log(people);
 
-var peopleContainer=document.getElementById('comeHere');
+var peopleContainer=document.getElementById('fancyContainer');
+//4.Create a DOM element for each of the objects inside the container. Style
+//your person elements however you like.
+
+
 
 function buildBio(person){
 	var bio = "";
@@ -59,7 +65,7 @@ function buildBio(person){
 	bio+= `<div class="peopleBio">`;
 	bio+=	`<header class="nameTitle">`;
 	bio+=		`<h1 class="name">${person.name}</h1>`;
-	bio+= 		`<div class="title"> ${person.title}</div>`;	
+	bio+= 		`<h4 class="title"> ${person.title}</h4>`;	
 	bio+=	`</header>`;
 	bio+=	`<section class="bioImage">`;
 	bio+=		`<div class="bio">${person.bio}</div>`;
@@ -68,7 +74,9 @@ function buildBio(person){
 	bio+=	 `<footer class="lifespan"> Birth: ${person.lifespan.birth}, Death: ${person.lifespan.death}</footer>`;
 	bio+= `</div>`;
 	return bio;
-}
+	}
+
+
 
 function printPeopleToDom(peopleArray){
 	for(i=0; i < peopleArray.length; i++){
@@ -80,3 +88,11 @@ function printPeopleToDom(peopleArray){
 }
 
 printPeopleToDom(people);
+
+// for(var j = 0; j<peopleContainer.length; j++){
+// 	peopleContainer[j].addEventListener("click", border);
+
+// 	function border(){
+// 		document.getElementsByClassName(peopleBio).style.border = "tomato dotted 3px";
+// 	}
+// }
