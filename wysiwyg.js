@@ -57,21 +57,22 @@ var peopleContainer=document.getElementById('fancyContainer');
 //4.Create a DOM element for each of the objects inside the container. Style
 //your person elements however you like.
 
+printPeopleToDom(people);
 
 
 function buildBio(person){
 	var bio = "";
 
 	bio+= `<div class="peopleBio">`;
-	bio+=	`<header class="nameTitle">`;
-	bio+=		`<h1 class="name">${person.name}</h1>`;
+	bio+=	 `<header class="nameTitle peopleBioChild">`;
+	bio+=		  `<h1 class="name">${person.name}</h1>`;
 	bio+= 		`<h4 class="title"> ${person.title}</h4>`;	
-	bio+=	`</header>`;
-	bio+=	`<section class="bioImage">`;
-	bio+=		`<div class="bio">${person.bio}</div>`;
-	bio+=		`<img src=${person.image} class="images" alt=${person.name}>`;
-	bio+=	`</section>`;
-	bio+=	 `<footer class="lifespan"> Birth: ${person.lifespan.birth}, Death: ${person.lifespan.death}</footer>`;
+	bio+=	 `</header>`;
+	bio+=	 `<section class="bioImage peopleBioChild">`;
+	bio+=		  `<div class="bio">${person.bio}</div>`;
+	bio+=		  `<img src=${person.image} class="images" alt=${person.name}>`;
+	bio+=	 `</section>`;
+	bio+=	 `<footer class="lifespan peopleBioChild"> Birth: ${person.lifespan.birth}, Death: ${person.lifespan.death}</footer>`;
 	bio+= `</div>`;
 	return bio;
 	}
@@ -87,7 +88,25 @@ function printPeopleToDom(peopleArray){
 	}
 }
 
-printPeopleToDom(people);
+var selectedCard;
+
+document.getElementById("fancyContainer").addEventListener("click", function(event){
+  addBorder(event);
+})
+
+function addBorder(event){
+//   if(event.target.classList.contains("peopleBioChild")){
+//   selectedCard = event.target.parentNode;
+// } else if (event.target.parentNode.parentNode.classList.contains("peopleBioChild")){
+//   selectedCard = event.parentNode.parentNode;
+// } else if (event.target.classList.contains("peopleBio")){
+//   selectedCard = event.target;
+// }
+// }
+console.log("I clicked in fancyContainer");}
+
+//document.body.addEventListener("click", function(event){console.log(event)});
+
 
 // for(var j = 0; j<peopleContainer.length; j++){
 // 	peopleContainer[j].addEventListener("click", border);
