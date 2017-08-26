@@ -62,6 +62,7 @@ printPeopleToDom(people);
 
 function buildBio(person){
 	var bio = "";
+  var idName = person.name.split(" ")[0];
 
 	bio+= `<div class="peopleBio">`;
 	bio+=	 `<header class="nameTitle peopleBioChild">`;
@@ -69,7 +70,7 @@ function buildBio(person){
 	bio+= 		`<h4 class="title"> ${person.title}</h4>`;	
 	bio+=	 `</header>`;
 	bio+=	 `<section class="bioImage peopleBioChild">`;
-	bio+=		  `<div class="bio">${person.bio}</div>`;
+	bio+=		  `<div class="bio" id=${idName}>${person.bio}</div>`;
 	bio+=		  `<img src=${person.image} class="images" alt=${person.name}>`;
 	bio+=	 `</section>`;
 	bio+=	 `<footer class="lifespan peopleBioChild"> Birth: ${person.lifespan.birth}, Death: ${person.lifespan.death}</footer>`;
@@ -92,26 +93,47 @@ var selectedCard;
 
 document.getElementById("fancyContainer").addEventListener("click", function(event){
   addBorder(event);
+  // printSelectedDescription();
+  console.log("in click listener", event);
 })
 
 function addBorder(event){
-//   if(event.target.classList.contains("peopleBioChild")){
-//   selectedCard = event.target.parentNode;
-// } else if (event.target.parentNode.parentNode.classList.contains("peopleBioChild")){
-//   selectedCard = event.parentNode.parentNode;
-// } else if (event.target.classList.contains("peopleBio")){
-//   selectedCard = event.target;
-// }
-// }
-console.log("I clicked in fancyContainer");}
+  if(event.target.classList.contains("peopleBioChild")){
+  selectedCard = event.target.parentNode;
+} else if (event.target.parentNode.parentNode.classList.contains("peopleBio")){
+  selectedCard = event.target.parentNode.parentNode;
+} else if (event.target.classList.contains("peopleBio")){
+  selectedCard = event.target;
+}
+
+  selectedCard.classList.toggle
+  ("borderStyle");
+  console.log("I clicked in fancyContainer");
+}
 
 //document.body.addEventListener("click", function(event){console.log(event)});
 
 
-// for(var j = 0; j<peopleContainer.length; j++){
-// 	peopleContainer[j].addEventListener("click", border);
 
-// 	function border(){
-// 		document.getElementsByClassName(peopleBio).style.border = "tomato dotted 3px";
-// 	}
-// }
+document.getElementById("fancyContainer").addEventListener("click", getFocus);
+
+
+function getFocus(event){
+  document.getElementById("myInput").focus();
+}
+
+
+function printSelectedDescription(){
+  selectedCard.childNodes[1].childNodes[0].innerHTML = `${myInput.value}`;
+  }
+
+  document.getElementById("myInput").addEventListener("keyup", printSelectedDescription);
+  document.getElementById('myInput').addEventListener("keyup", clearTextbox);
+
+  function clearTextbox(e){
+    if(e.keyCode===13){
+      myInput.value = "";
+      selectedCard.childNodes[1].childNodes[0].innerHTML = `${myInput.value}`;
+
+    }
+  };
