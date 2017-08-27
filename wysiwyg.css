@@ -1,6 +1,7 @@
 #fancyContainer {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 
 /*5. For every even numbered element, have a light yellow background. 
@@ -44,4 +45,8 @@
 .lifespan {
 	text-align: center;
 	font-size: 1.25em;
+}
+
+.borderStyle {
+	border: black dotted 5px;
 }
